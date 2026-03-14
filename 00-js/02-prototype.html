@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Animal(name) {
+        this.name = name;
+    }
+
+    Animal.prototype.showName = function () {
+        console.log(this.name);
+    }
+
+    function Cat() {
+        //调用父类的构造函数,改变this指向,将父类中的方法和属性在子类上实施一遍，子类也会具备这些方法和属性
+        Animal.call(this, 'CAT')
+    }
+
+    //Object.create:创建一个空对象,使用是指定的对象作为原型
+    Cat.prototype = Object.create(Animal.prototype)
+    Cat.prototype.constructor = Cat;
+
+    const myCat = new Cat();
+    myCat.showName();
+</script>
+</body>
+</html>

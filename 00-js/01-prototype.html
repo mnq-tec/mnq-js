@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Animal(name) {
+        this.name = name;
+    }
+
+    Animal.prototype.showName = function () {
+        console.log(this.name);
+    }
+
+    function Cat() {
+
+    }
+
+    Cat.prototype = new Animal('Cat');
+    Cat.prototype.constructor = Cat;
+
+    const myCat = new Cat();
+    myCat.showName();
+</script>
+</body>
+</html>
