@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    let a = 10
+    let b = 20
+
+    setTimeout(function () {
+        console.log("异步内容")
+    }, 1000)
+    let t1 = new Date().getTime()
+    let t2 = new Date().getTime()
+
+    while (t2 - t1 < 3000) {
+        t2 = new Date().getTime()
+    }
+    console.log(a + b)
+
+</script>
+</body>
+</html>
