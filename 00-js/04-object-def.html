@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定义对象</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    /*第一种定义对象的方式*/
+    // let person = new Object();
+    // person.name = "Alice";
+    // person.age = 6;
+    // person.job = "Software Engineer";
+    //
+    // person.sayName = function () {
+    //     console.log(this.name);
+    // }
+
+    // person.sayName();
+
+    /*第二种定义对象的方式：对象字面量*/
+    let person = {
+        name: "John",
+        age: 9,
+        job: "Software Engineer",
+        sayName() {
+            console.log(this.name);
+        }
+    };
+
+    person.sayName();
+
+</script>
+</body>
+</html>

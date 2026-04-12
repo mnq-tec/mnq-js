@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象解构</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*对象解构就是使用与对象匹配的结构来实现对象属性赋值*/
+    let person = {
+        name: "Wu xiaowei",
+        age: 3,
+        job: {
+            title: "Software Engineer"
+        }
+    };
+
+    /*let {name: personName, age: personAge} = person;
+    console.log(personName);
+    console.log(personAge);
+
+    // 变量直接使用属性的名称
+    let {name, age} = person;
+    console.log(name);
+    console.log(age);
+
+    //声明和解构分开时，结构必须放到一对括号内
+    let a, b;
+
+    ({name: a, age: b} = person);
+    console.log(a);
+    console.log(b);
+
+    //嵌套解构
+    let personCopy = {};
+    /!*({name: personCopy.name, age: personCopy.age, job: personCopy.job} = person);
+    console.log(personCopy);*!/
+
+    let {name: personName, age: personAge, job: {title: jobTitle}} = person;
+    console.log(personName);
+    console.log(jobTitle);*/
+
+    //在函数参数中进行解构
+    /*function print(foo, {name, age}, bar) {
+        console.log(name, age);
+    }
+
+    function print2(foo, {name: personName, age: personAge}, bar) {
+        console.log(personName, personAge);
+    }
+
+    print("1st",person,"2nd");
+    print2("1st",person,"2nd");*/
+    // 剩余操作符
+    let {name, ...remainingData} = person;
+    console.log(remainingData);
+</script>
+</body>
+</html>

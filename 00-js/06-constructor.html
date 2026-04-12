@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>构造函数</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    //函数作为构造函数使用时，属性赋值给了this，没有返回值。在内存中构造一个新的对象，
+    //this指向这个对象。如果这个函数有返回非空的对象，则
+    //返回这个对象，否则返回新创建的对象
+    function Person(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.sayName = function () {
+            console.log(this.name);
+        }
+    }
+
+    let person1=new Person("xiaowei",18,"Software Engineer");
+    let person2=new Person("wumanqi",9,"Student");
+
+    person1.sayName();
+    person2.sayName();
+
+    person1.constructor
+
+</script>
+</body>
+</html>
