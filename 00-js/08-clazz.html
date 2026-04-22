@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES类</title>
+</head>
+<body>
+<script type="text/javascript">
+    class Person {
+        //实例可以在类中快捷定义
+        name;
+        age;
+
+        //构造函数,实例字段也可以在构造函数中通过this定义
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        //类中定义的方法为实例间共享的方法(类的原型上)
+        // sayHello = function () {//这种写法是给了一个函数类型的实例属性,不对
+        //     console.log("Hello World!");
+        // }
+
+        sayHello(){//正确写法
+            console.log("Hello World!");
+        }
+
+        //
+    }
+
+    let person1 = new Person("foo", 10);
+    let person2 = new Person("bar", 20);
+    console.log(person1.name, person1.age);
+    console.log(person1.sayHello === person2.sayHello);
+
+
+</script>
+</body>
+</html>

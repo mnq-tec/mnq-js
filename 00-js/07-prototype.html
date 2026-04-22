@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型链</title>
+</head>
+<body>
+<script type="text/javascript">
+    let Person = function () {
+    }
+    Person.prototype.name = "Alice";
+    Person.prototype.age = 15;
+    Person.prototype.gender = "male";
+
+    let person1 = new Person;
+    console.log(person1);
+
+    let person2 = new Person;
+
+    person1.name = "Foobar";
+    //从对象访问,属性会被覆盖,但是通过原型对象访问,对象的属性不会覆盖
+    console.log(person1.name, person1.__proto__.name, person1.constructor.prototype.name);
+    console.log(person2.name);
+
+    console.log("person1 has own property 'name':" + person1.hasOwnProperty("name"));
+    console.log("person2 has own property 'name':" + person2.hasOwnProperty("name"));
+    console.log(person1.hasOwnProperty("constructor"));//false 参考原型链图
+
+    Person.prototype = {
+        constructor: Person,
+        sayHello: function () {
+            console.log("Hello World!");
+        }
+    }
+
+    //对象的原型对象在创建对象的时候指定了(通过原型指针),对象并没有直接跟构造函数绑定,
+    //对象的constructor属性是在对象的原型对象中存储的,所以如果对象创建后,修改了[构造函数]指向的
+    //原型对象后,原来创建的对象,指向的原型还是原来的.
+
+    let person3=new Person;
+    person3.sayHello();//正常实行
+    //person1.sayHello();//报错:TypeError: person1.sayHello is not a function. (In 'person1.sayHello()', 'person1.sayHello' is undefined)
+
+
+</script>
+</body>
+</html>

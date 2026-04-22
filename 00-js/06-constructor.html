@@ -19,14 +19,35 @@
         }
     }
 
-    let person1=new Person("xiaowei",18,"Software Engineer");
-    let person2=new Person("wumanqi",9,"Student");
+    //函数表达式的方式来创建构造函数
+    let Animal = function (name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.sayName = function () {
+            console.log(this.name);
+        }
+    }
+
+    let person1 = new Person("xiaowei", 18, "Software Engineer");
+    let person2 = new Person("wumanqi", 9, "Student");
 
     person1.sayName();
     person2.sayName();
 
-    person1.constructor
+    //constructor 指向构造函数,可以用来表示对象类型,但是判断对象类型通常用instanceof判断
+    console.log(person1.constructor == Person);
+    console.log(person2.constructor == Person);
 
+    console.log(person1 instanceof Person);
+    console.log(person2 instanceof Person);
+
+
+    //构造函数就和普通函数的区别就是调用方式区别
+    //定义的方法会在每个实例上都创建一遍,可以通过将函数定义在外部来解决这个问题,但会把作用于搞的很乱
+    console.log("构造函数中的函数比较:",person1.sayName === person2.sayName);//false
+
+    //可以通过原型链来解决这个问题
 </script>
 </body>
 </html>
